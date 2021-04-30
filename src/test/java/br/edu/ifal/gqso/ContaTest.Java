@@ -32,4 +32,18 @@ public class ContaTest {
     assertThrows(ValorDeTransacaoNegativo.class, () -> conta.saque(-100));
     assertThrows(SaldoInsuficiente.class, () -> conta.saque(10));
   }
+
+  @Test
+  public void saldoTest() throws ValorDeTransacaoNegativo, SaldoInsuficiente {
+    assertEquals(0, conta.saldo());
+
+    conta.deposito(20);
+    assertEquals(20, conta.saldo());
+
+    conta.saque(12.73);
+    assertEquals(7.27, conta.saldo());
+
+    conta.deposito(8);
+    assertEquals(15.27, conta.saldo());
+  }
 }
