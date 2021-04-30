@@ -26,6 +26,7 @@ public class ContaTest {
 
   @Test
   public void saqueTest() throws ValorDeTransacaoNegativo, SaldoInsuficiente {
+    conta.deposito(27.5);
     assertEquals(17, conta.saque(10.5));
     assertEquals(0, conta.saque(17));
     assertThrows(ValorDeTransacaoNegativo.class, () -> conta.saque(-100));
