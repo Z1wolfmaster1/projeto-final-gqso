@@ -19,10 +19,9 @@ public class ContaTest {
   }
 
   @Test
-  public void depositoTest() {
+  public void depositoTest() throws ValorDeTransacaoNegativo {
     assertEquals(10, conta.deposito(10));
     assertEquals(27.5, conta.deposito(17.5));
-    assertThrows(ValorDeTransacaoNegativo.class, conta.deposito(-100));
-    assertThrows(ParametroInvalido.class, conta.deposito("7"));
+    assertThrows(ValorDeTransacaoNegativo.class, () -> conta.deposito(-100));
   }
 }
